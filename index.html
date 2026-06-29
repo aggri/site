@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>DC Universe — Characters</title>
+  <meta name="description" content="Esplora i personaggi iconici DC Comics — Joker, Batman, Bane, Riddler, Catwoman." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="page-bg" id="page-bg">
+  <div class="card" id="main-card">
+
+    <!-- Watermark -->
+    <div class="watermark" id="watermark">DC</div>
+
+    <!-- ══ NAVBAR ══ -->
+    <header class="navbar" id="navbar">
+      <a href="#" class="nav-logo" data-nav="home" aria-label="DC Comics Home">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="20" r="18" stroke="#111" stroke-width="2"/>
+          <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle"
+                font-family="Inter,sans-serif" font-weight="900" font-size="13" fill="#111">DC</text>
+        </svg>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu" aria-label="Navigazione principale">
+        <a href="#" class="nav-link active" data-nav="home"  id="nl-home">Home</a>
+        <a href="#" class="nav-link"        data-nav="movie" id="nl-movie">Movie</a>
+        <a href="#" class="nav-link"        data-nav="about" id="nl-about">About</a>
+        <a href="#" class="nav-link"        data-nav="blog"  id="nl-blog">Blog</a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Apri menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <!-- ══ HERO ══ -->
+    <main class="hero" id="hero">
+
+      <!-- Left: Character info -->
+      <div class="hero-left">
+        <div class="char-info" id="char-info">
+          <h1 class="char-name"     id="char-name">Joker</h1>
+          <p  class="char-subtitle" id="char-subtitle">Published By DC</p>
+          <div class="dot-divider" aria-hidden="true"></div>
+          <div class="power-block">
+            <h2 class="power-title" id="power-title">Power</h2>
+            <p  class="power-text"  id="power-text"></p>
+          </div>
+        </div>
+
+        <button class="scroll-btn" id="scroll-btn" aria-label="Prossimo personaggio">
+          <svg width="22" height="34" viewBox="0 0 22 34" fill="none">
+            <rect x="1" y="1" width="20" height="32" rx="10" stroke="#666" stroke-width="1.5"/>
+            <circle class="scroll-ball" cx="11" cy="10" r="3" fill="#666"/>
+          </svg>
+          <span>Scroll Mouse</span>
+        </button>
+      </div>
+
+      <!-- Center/Right: Character images + badges -->
+      <div class="hero-images" id="hero-images">
+        <img class="char-img active" src="joker.jpg"   alt="Joker"    id="ci-0"/>
+        <img class="char-img"        src="batman.jpg"  alt="Batman"   id="ci-1"/>
+        <img class="char-img"        src="bane.jpg"    alt="Bane"     id="ci-2"/>
+        <img class="char-img"        src="riddler.jpg" alt="Riddler"  id="ci-3"/>
+        <img class="char-img"        src="catwoman.jpg" alt="Catwoman" id="ci-4"/>
+
+        <div class="badge badge-top" id="badge-top" aria-hidden="true">
+          <span class="badge-dot"></span>
+          <span id="badge-top-label">Intelligence</span>
+        </div>
+        <div class="badge badge-bot" id="badge-bot" aria-hidden="true">
+          <span class="badge-dot"></span>
+          <span id="badge-bot-label">Unpredictability</span>
+        </div>
+      </div>
+
+    </main><!-- /.hero -->
+
+    <!-- ══ RIGHT SIDEBAR ══ -->
+    <aside class="sidebar" id="sidebar" aria-label="Navigazione personaggi">
+      <span class="sidebar-num" id="num-current" aria-live="polite">01</span>
+      <div class="sidebar-dots" role="tablist" aria-label="Personaggi">
+        <button class="dot active" role="tab" data-idx="0" aria-selected="true"  aria-label="Joker"    id="dot-0"></button>
+        <button class="dot"        role="tab" data-idx="1" aria-selected="false" aria-label="Batman"   id="dot-1"></button>
+        <button class="dot"        role="tab" data-idx="2" aria-selected="false" aria-label="Bane"     id="dot-2"></button>
+        <button class="dot"        role="tab" data-idx="3" aria-selected="false" aria-label="Riddler"  id="dot-3"></button>
+        <button class="dot"        role="tab" data-idx="4" aria-selected="false" aria-label="Catwoman" id="dot-4"></button>
+      </div>
+      <span class="sidebar-num">05</span>
+    </aside>
+
+    <!-- ══ CHARACTER ICON (bottom-right) ══ -->
+    <div class="char-icon" id="char-icon" aria-hidden="true"></div>
+
+    <!-- ══ OVERLAY PANEL (Movie / About / Blog) ══ -->
+    <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="overlay-panel" id="overlay-panel">
+        <button class="overlay-close" id="overlay-close" aria-label="Chiudi pannello">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <line x1="1" y1="1" x2="17" y2="17" stroke="#111" stroke-width="2" stroke-linecap="round"/>
+            <line x1="17" y1="1" x2="1" y2="17" stroke="#111" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="overlay-body" id="overlay-body"></div>
+      </div>
+    </div>
+
+    <!-- ══ MOBILE NAV OVERLAY ══ -->
+    <div class="mobile-nav" id="mobile-nav" aria-hidden="true" role="dialog">
+      <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Chiudi menu">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <line x1="1" y1="1" x2="17" y2="17" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <line x1="17" y1="1" x2="1" y2="17" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <nav class="mobile-nav-links">
+        <a href="#" class="mobile-nav-link" data-nav="home">Home</a>
+        <a href="#" class="mobile-nav-link" data-nav="movie">Movie</a>
+        <a href="#" class="mobile-nav-link" data-nav="about">About</a>
+        <a href="#" class="mobile-nav-link" data-nav="blog">Blog</a>
+      </nav>
+      <div class="mobile-nav-dots">
+        <button class="dot active" data-idx="0" aria-label="Joker"></button>
+        <button class="dot"        data-idx="1" aria-label="Batman"></button>
+        <button class="dot"        data-idx="2" aria-label="Bane"></button>
+        <button class="dot"        data-idx="3" aria-label="Riddler"></button>
+        <button class="dot"        data-idx="4" aria-label="Catwoman"></button>
+      </div>
+    </div>
+
+  </div><!-- /.card -->
+</div><!-- /.page-bg -->
+
+<script src="script.js"></script>
+</body>
+</html>
